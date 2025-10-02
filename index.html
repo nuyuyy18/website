@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurul Azizah - Digital Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2.4); opacity: 0; }
+        }
+        
+        @keyframes slide-in-up {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.7; }
+            25% { transform: translateY(-20px) translateX(10px); opacity: 1; }
+            50% { transform: translateY(-10px) translateX(-5px); opacity: 0.8; }
+            75% { transform: translateY(-30px) translateX(15px); opacity: 0.9; }
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0f0f23, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .glass-nav {
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tech-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .tech-gradient-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .tech-gradient-3 {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .float-gentle {
+            animation: float-gentle 6s ease-in-out infinite;
+        }
+        
+        .slide-in-up {
+            animation: slide-in-up 0.8s ease-out forwards;
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+        
+        .skill-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+        
+        .project-card {
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            animation: particle-float 8s ease-in-out infinite;
+        }
+        
+        .tech-icon {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 2s ease-in-out;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.5), transparent);
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white overflow-x-hidden">
+    <!-- Floating Particles -->
+    <div class="floating-particles" id="particles"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Nurul Azizah
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-blue-400 transition-colors duration-300">Home</a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors duration-300">About</a>
+                    <a href="#skills" class="hover:text-blue-400 transition-colors duration-300">Skills</a>
+                    <a href="#projects" class="hover:text-blue-400 transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors duration-300">Contact</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="slide-in-up">
+                <div class="relative mb-12">
+                    <div class="w-40 h-40 mx-auto relative">
+                        <div class="absolute inset-0 tech-gradient rounded-full pulse-ring"></div>
+                        <div class="absolute inset-4 glass-card rounded-full flex items-center justify-center">
+                            <div class="w-24 h-24 tech-gradient rounded-full flex items-center justify-center">
+                                <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h1 class="text-6xl md:text-8xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Nurul Azizah
+                    </span>
+                </h1>
+                
+                <div class="text-2xl md:text-3xl mb-8 font-light">
+                    <span class="bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">
+                        Web Scraper & Data Analyst
+                    </span>
+                </div>
+                
+                <p class="text-xl mb-12 max-w-3xl mx-auto text-gray-300 leading-relaxed">
+                    Transforming raw data into actionable insights through advanced scraping techniques 
+                    and sophisticated analytical methodologies. Building the future of data intelligence.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('projects')" class="btn-primary px-8 py-4 rounded-full font-semibold text-lg">
+                        Explore Projects
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="glass-card px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:bg-opacity-10 transition-all duration-300">
+                        Get In Touch
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="section-divider mb-20"></div>
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                        About Me
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Passionate about extracting meaningful patterns from complex data ecosystems
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="glass-card p-8 rounded-2xl float-gentle">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-400">My Philosophy</h3>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-4">
+                            I believe that data is the new oil of the digital age. My mission is to refine this raw resource 
+                            into pure, actionable intelligence that drives strategic decision-making and business growth.
+                        </p>
+                        <p class="text-lg text-gray-300 leading-relaxed">
+                            Through ethical scraping practices and cutting-edge analytical techniques, I help organizations 
+                            unlock the hidden value within their data landscapes.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="glass-card p-6 rounded-xl text-center">
+                            <div class="text-3xl font-bold text-blue-400 mb-2" id="experience-years">0</div>
+                            <div class="text-sm text-gray-400">Years Experience</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl text-center">
+                            <div class="text-3xl font-bold text-purple-400 mb-2" id="projects-completed">0</div>
+                            <div class="text-sm text-gray-400">Projects Completed</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-xl text-center">
+                            <div class="text-3xl font-bold text-pink-400 mb-2" id="data-processed">0</div>
+                            <div class="text-sm text-gray-400">TB Data Processed</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="glass-card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-6 text-purple-400">Core Expertise</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 tech-icon rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Advanced Web Scraping</div>
+                                    <div class="text-sm text-gray-400">Selenium, BeautifulSoup, Scrapy</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 tech-icon rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Data Analysis & Visualization</div>
+                                    <div class="text-sm text-gray-400">Pandas, NumPy</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 tech-icon rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Machine Learning Integration</div>
+                                    <div class="text-sm text-gray-400"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 tech-icon rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Database Management</div>
+                                    <div class="text-sm text-gray-400">MySQL</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="section-divider mb-20"></div>
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Technical Skills
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Mastery across the full spectrum of data extraction and analysis technologies
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="skill-card glass-card p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 tech-gradient rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Programming</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Python</span>
+                                <span class="text-blue-400 font-mono">95%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" data-width="95"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">JavaScript</span>
+                                <span class="text-blue-400 font-mono">88%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" data-width="88"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">SQL</span>
+                                <span class="text-blue-400 font-mono">50%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" data-width="50"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scraping Tools -->
+                <div class="skill-card glass-card p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 tech-gradient-2 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Scraping Tools</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Selenium</span>
+                                <span class="text-purple-400 font-mono">94%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" data-width="94"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">BeautifulSoup</span>
+                                <span class="text-purple-400 font-mono">96%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" data-width="96"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Scrapy</span>
+                                <span class="text-purple-400 font-mono">50%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" data-width="50"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="skill-card glass-card p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 tech-gradient-3 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Data Analysis</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Pandas</span>
+                                <span class="text-cyan-400 font-mono">93%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" data-width="93"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">NumPy</span>
+                                <span class="text-cyan-400 font-mono">50%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" data-width="50"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-300">Visualization</span>
+                                <span class="text-cyan-400 font-mono">87%</span>
+                            </div>
+                            <div class="bg-gray-700 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" data-width="87"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative">
+        <div class="section-divider mb-20"></div>
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">
+                        Featured Projects
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Showcasing innovative solutions in data extraction and analysis
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card glass-card p-8 rounded-2xl">
+                    <div class="mb-6">
+                        <div class="w-full h-48 tech-gradient rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Smart Price Monitor</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            Intelligent e-commerce price tracking system with real-time alerts, 
+                            competitor analysis, and predictive pricing algorithms.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-300 text-xs rounded-full border border-blue-500 border-opacity-30">Python</span>
+                            <span class="px-3 py-1 bg-green-500 bg-opacity-20 text-green-300 text-xs rounded-full border border-green-500 border-opacity-30">Selenium</span>
+                            <span class="px-3 py-1 bg-purple-500 bg-opacity-20 text-purple-300 text-xs rounded-full border border-purple-500 border-opacity-30">PostgreSQL</span>
+                        </div>
+                        <button onclick="showProjectModal('project1')" class="btn-primary w-full py-3 rounded-lg font-semibold">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-card p-8 rounded-2xl">
+                    <div class="mb-6">
+                        <div class="w-full h-48 tech-gradient-2 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Ebay Scraping</h3>
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            This project focuses on building a robust web scraping solution to extract structured product information from eBay. Using Selenium, BeautifulSoup, and Python, the scraper automates interactions such as search queries, pagination, scrolling, and product detail extraction.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-500 bg-opacity-20 text-blue-300 text-xs rounded-full border border-blue-500 border-opacity-30">Python</span>
+                            <span class="px-3 py-1 bg-yellow-500 bg-opacity-20 text-yellow-300 text-xs rounded-full border border-yellow-500 border-opacity-30">NLP</span>
+                            <span class="px-3 py-1 bg-red-500 bg-opacity-20 text-red-300 text-xs rounded-full border border-red-500 border-opacity-30">Streamlit</span>
+                        </div>
+                        <button onclick="showProjectModal('project2')" class="btn-primary w-full py-3 rounded-lg font-semibold">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="section-divider mb-20"></div>
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                        Let's Connect
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Ready to transform your data challenges into opportunities? Let's discuss your project.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <div class="glass-card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold text-white mb-6">Get In Touch</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                            Whether you need data extraction, analysis, or automation solutions, 
+                            I'm here to help you unlock the power of your data.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 tech-gradient rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Email</div>
+                                    <div class="text-gray-300">nurul.azizahhhhh18@gmail.com</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 tech-gradient-2 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">LinkedIn</div>
+                                    <div class="text-gray-300">linkedin.com/in/nurul-azizah-a0730336b/</div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 tech-gradient-3 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-white">Location</div>
+                                    <div class="text-gray-300">Purworejo, Indonesia</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8 rounded-2xl">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                                <input type="text" id="name" required class="w-full px-4 py-3 bg-white bg-opacity-5 border border-white border-opacity-20 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
+                                <input type="email" id="email" required class="w-full px-4 py-3 bg-white bg-opacity-5 border border-white border-opacity-20 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Project Type</label>
+                            <select id="project-type" class="w-full px-4 py-3 bg-white bg-opacity-5 border border-white border-opacity-20 rounded-lg text-white focus:border-blue-400 focus:outline-none transition-colors">
+                                <option value="" class="bg-gray-800">Select project type</option>
+                                <option value="web-scraping" class="bg-gray-800">Web Scraping</option>
+                                <option value="data-analysis" class="bg-gray-800">Data Analysis</option>
+                                <option value="automation" class="bg-gray-800">Process Automation</option>
+                                <option value="consultation" class="bg-gray-800">Consultation</option>
+                                <option value="other" class="bg-gray-800">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Project Details</label>
+                            <textarea id="message" rows="5" required class="w-full px-4 py-3 bg-white bg-opacity-5 border border-white border-opacity-20 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors resize-none" placeholder="Tell me about your project requirements..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-full py-4 rounded-lg font-semibold text-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white border-opacity-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-400 mb-4 md:mb-0">
+                    © 2024 Nurul Azizah. Crafted with precision and passion.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-4xl w-full rounded-2xl p-8 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-8">
+                <h3 id="modal-title" class="text-3xl font-bold text-white"></h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add click handlers to navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animate progress bars on scroll
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const rect = bar.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
+                }
+            });
+        }
+
+        // Animate counters
+        function animateCounters() {
+            const counters = [
+                { element: document.getElementById('experience-years'), target: 5 },
+                { element: document.getElementById('projects-completed'), target: 127 },
+                { element: document.getElementById('data-processed'), target: 2.8 }
+            ];
+            
+            counters.forEach(counter => {
+                if (counter.element) {
+                    animateCounter(counter.element, counter.target);
+                }
+            });
+        }
+
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.id === 'projects-completed' ? '+' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current * 10) / 10;
+                }
+            }, 20);
+        }
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const projectType = document.getElementById('project-type').value;
+            const message = document.getElementById('message').value;
+            
+            // Show success message
+            alert(`Thank you ${name}! Your message has been received. I'll get back to you at ${email} within 24 hours.`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Project modal functionality
+        function showProjectModal(projectId) {
+            const modal = document.getElementById('project-modal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            const projects = {
+                'project1': {
+                    title: 'Smart Price Monitor',
+                    content: `
+                        <div class="space-y-8">
+                            <div class="aspect-video tech-gradient rounded-xl flex items-center justify-center">
+                                <svg class="w-32 h-32 text-white opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-4 text-blue-400">Project Overview</h4>
+                                    <p class="text-gray-300 leading-relaxed mb-6">
+                                        An intelligent e-commerce monitoring system that tracks prices across multiple platforms, 
+                                        analyzes competitor strategies, and provides actionable insights for pricing optimization.
+                                    </p>
+                                    <h4 class="text-xl font-bold mb-3 text-purple-400">Key Features</h4>
+                                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                        <li>Real-time price monitoring across 15+ marketplaces</li>
+                                        <li>Automated competitor analysis and reporting</li>
+                                        <li>Smart alert system for price changes</li>
+                                        <li>Historical trend analysis and forecasting</li>
+                                        <li>RESTful API for third-party integrations</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-3 text-green-400">Technical Stack</h4>
+                                    <div class="space-y-3 mb-6">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">Python & Selenium</span>
+                                            <span class="text-blue-400">Backend</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">PostgreSQL</span>
+                                            <span class="text-green-400">Database</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">Redis</span>
+                                            <span class="text-red-400">Caching</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">Docker</span>
+                                            <span class="text-purple-400">Deployment</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-xl font-bold mb-3 text-yellow-400">Performance</h4>
+                                    <div class="glass-card p-4 rounded-lg">
+                                        <div class="text-2xl font-bold text-white mb-1">50,000+</div>
+                                        <div class="text-sm text-gray-400">Products monitored daily</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'project2': {
+                    title: 'Social Analytics Hub',
+                    content: `
+                        <div class="space-y-8">
+                            <div class="aspect-video tech-gradient-2 rounded-xl flex items-center justify-center">
+                                <svg class="w-32 h-32 text-white opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                </svg>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-4 text-pink-400">Project Overview</h4>
+                                    <p class="text-gray-300 leading-relaxed mb-6">
+                                        Advanced social media analytics platform powered by AI and machine learning, 
+                                        providing deep insights into brand sentiment, engagement patterns, and market trends.
+                                    </p>
+                                    <h4 class="text-xl font-bold mb-3 text-blue-400">AI Capabilities</h4>
+                                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                        <li>Multi-language sentiment analysis</li>
+                                        <li>Influencer identification and tracking</li>
+                                        <li>Trend prediction algorithms</li>
+                                        <li>Automated content categorization</li>
+                                        <li>Real-time brand monitoring</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-3 text-purple-400">ML Models</h4>
+                                    <div class="space-y-3 mb-6">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">BERT Sentiment</span>
+                                            <span class="text-green-400">94.3%</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">NER Recognition</span>
+                                            <span class="text-blue-400">91.7%</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">Topic Modeling</span>
+                                            <span class="text-purple-400">88.9%</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">Trend Prediction</span>
+                                            <span class="text-yellow-400">86.2%</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-xl font-bold mb-3 text-cyan-400">Data Processing</h4>
+                                    <div class="glass-card p-4 rounded-lg">
+                                        <div class="text-2xl font-bold text-white mb-1">1M+</div>
+                                        <div class="text-sm text-gray-400">Posts analyzed daily</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                'project3': {
+                    title: 'Property Intelligence',
+                    content: `
+                        <div class="space-y-8">
+                            <div class="aspect-video tech-gradient-3 rounded-xl flex items-center justify-center">
+                                <svg class="w-32 h-32 text-white opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                                </svg>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-4 text-cyan-400">Project Overview</h4>
+                                    <p class="text-gray-300 leading-relaxed mb-6">
+                                        Comprehensive real estate data pipeline that aggregates property information from multiple sources, 
+                                        applies machine learning for price prediction, and identifies investment opportunities.
+                                    </p>
+                                    <h4 class="text-xl font-bold mb-3 text-green-400">Pipeline Features</h4>
+                                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                        <li>Multi-source data extraction and ETL</li>
+                                        <li>ML-powered price prediction models</li>
+                                        <li>Market trend analysis and forecasting</li>
+                                        <li>Investment opportunity scoring</li>
+                                        <li>Automated reporting and alerts</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-3 text-yellow-400">ML Algorithms</h4>
+                                    <div class="space-y-3 mb-6">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">Random Forest</span>
+                                            <span class="text-green-400">Price Prediction</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">XGBoost</span>
+                                            <span class="text-blue-400">Market Analysis</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">Neural Networks</span>
+                                            <span class="text-purple-400">Pattern Recognition</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-300">Time Series</span>
+                                            <span class="text-red-400">Forecasting</span>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-xl font-bold mb-3 text-pink-400">Data Scale</h4>
+                                    <div class="glass-card p-4 rounded-lg">
+                                        <div class="text-2xl font-bold text-white mb-1">500K+</div>
+                                        <div class="text-sm text-gray-400">Properties in database</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+            
+            const project = projects[projectId];
+            if (project) {
+                title.textContent = project.title;
+                content.innerHTML = project.content;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('project-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Scroll event listener
+        window.addEventListener('scroll', function() {
+            animateProgressBars();
+        });
+
+        // Initialize
+        window.addEventListener('load', function() {
+            createParticles();
+            setTimeout(animateCounters, 1000);
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            // Add mobile menu functionality here
+            alert('Mobile menu functionality can be implemented as needed');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987bb3eb868e6cf1',t:'MTc1OTMxOTAxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+<!DOCTYPE html>
